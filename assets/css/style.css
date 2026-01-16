@@ -1,0 +1,644 @@
+/* ============================================================
+   RESET GENERAL
+   ============================================================ */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* ============================================================
+   BODY (estructura general del sitio)
+   - header fijo
+   - contenido que ocupa el espacio disponible
+   - footer abajo
+   ============================================================ */
+body {
+  display: grid;
+  grid-template-rows: auto 1fr auto;
+  min-height: 100vh;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+/* ============================================================
+   HEADER / NAVBAR (menú fijo superior)
+   ============================================================ */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  background-color: #0a3551; /* color fijo */
+  padding: 10px 20px;
+  height: 70px;
+  gap: 40px;
+
+  position: fixed; /* queda pegado arriba */
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 10;
+
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.15);
+}
+
+/* Logo */
+.logo {
+  width: 156px;
+  display: block;
+}
+
+/* Checkbox del menú móvil (oculto) */
+.check-menu {
+  display: none;
+}
+
+/* Botón hamburguesa (se activa en móvil) */
+.label-check {
+  display: none;
+  cursor: pointer;
+}
+
+/* Menú links escritorio */
+.nav-links {
+  display: flex;
+  gap: 20px;
+  list-style: none;
+  font-family: sans-serif;
+}
+
+.nav-links li a {
+  color: #ffffff;
+  text-decoration: none;
+  font-size: 17px;
+}
+
+.nav-links li a:hover {
+  color: #0c81e7;
+}
+
+/* ============================================================
+   SECCIÓN: INTRO / CONTENIDO (usado en "servicios")
+   ============================================================ */
+.contenido {
+  margin: 120px auto 0; /* deja espacio por el navbar fijo */
+  width: 60%;
+  max-width: 800px;
+}
+
+.contenido h2 {
+  margin-bottom: 20px;
+  text-align: center;
+  font-size: 28px;
+}
+
+.contenido p {
+  font-size: 18px;
+  line-height: 1.5;
+  color: #333;
+}
+
+/* ============================================================
+   HERO (portada del index)
+   ============================================================ */
+.hero-padre {
+  min-height: 450px;
+  position: relative;
+
+  background-image: url("../img/hero-servicios.png");
+  background-size: cover;
+  background-position: center;
+}
+
+.hero-capa {
+  width: 100%;
+  height: 100%;
+
+  background-color: #000000;
+  opacity: 0.8;
+
+  position: absolute;
+  top: 0;
+  left: 0;
+
+  display: flex;
+  justify-content: center;
+}
+
+.contenido-hero {
+  color: #ffffff;
+
+  /* ✅ responsive real (antes se rompía por width fijo) */
+  max-width: 800px;
+  width: 90%;
+
+  text-align: center;
+  padding-top: 150px;
+  font-size: 20px;
+  text-shadow: 0 0 2px #ffffff;
+}
+
+.boton-registro {
+  width: 100%;
+  margin-top: 50px;
+}
+
+.boton-registro a {
+  display: inline-block;
+  background-color: #0c81e7;
+  color: #ffffff;
+  text-decoration: none;
+  border-radius: 50px;
+  font-size: 22px;
+  padding: 8px 25px;
+  text-shadow: 0 0 2px #ffffff;
+  transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+.boton-registro a:hover {
+  color: #000000;
+  background-color: #ffffff;
+}
+
+/* ============================================================
+   QUIÉNES SOMOS (index)
+   ============================================================ */
+.quienes {
+  padding: 70px 16px;
+  background: linear-gradient(180deg, #ffffff 0%, #f7f9fc 100%);
+}
+
+.quienes__contenedor {
+  width: 90%;
+  max-width: 1100px;
+  margin: 0 auto;
+
+  background: #ffffff;
+  border: 1px solid #e6eaf0;
+  border-radius: 18px;
+  box-shadow: 0 10px 30px rgba(2, 12, 27, 0.1);
+
+  padding: 36px 28px;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Detalle decorativo */
+.quienes__contenedor::before {
+  content: "";
+  position: absolute;
+  top: -60px;
+  right: -60px;
+  width: 180px;
+  height: 180px;
+  background: rgba(12, 129, 231, 0.12);
+  border-radius: 50%;
+}
+
+.quienes__encabezado {
+  text-align: center;
+  margin-bottom: 26px;
+}
+
+.quienes__titulo {
+  font-size: 32px;
+  color: #0a3551;
+  margin-bottom: 12px;
+  display: inline-block;
+}
+
+.quienes__titulo::after {
+  content: "";
+  display: block;
+  width: 70%;
+  height: 4px;
+  background: #0c81e7;
+  border-radius: 99px;
+  margin: 10px auto 0;
+}
+
+.quienes__subtitulo {
+  max-width: 780px;
+  margin: 0 auto;
+  color: #5b6472;
+  font-size: 16px;
+  line-height: 1.7;
+}
+
+/* Layout: 2 columnas (texto + tarjetas) */
+.quienes__cuerpo {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 22px;
+  align-items: start;
+  margin-top: 18px;
+}
+
+.quienes__texto p {
+  font-size: 17px;
+  line-height: 1.8;
+  color: #333;
+  margin-bottom: 12px;
+}
+
+/* Tarjetas de servicios (dentro de "quienes") */
+.quienes__servicios {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 12px;
+}
+
+.servicio {
+  background: #f2f7ff;
+  border: 1px solid #dbe8ff;
+  border-radius: 14px;
+  padding: 14px;
+  transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
+}
+
+.servicio:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 12px 24px rgba(2, 12, 27, 0.1);
+  border-color: rgba(12, 129, 231, 0.35);
+}
+
+.servicio__titulo {
+  margin: 0 0 6px 0;
+  color: #0a3551;
+  font-size: 18px;
+}
+
+.servicio__texto {
+  margin: 0;
+  color: #333;
+  font-size: 14px;
+  line-height: 1.6;
+}
+
+/* Frase final */
+.quienes__frase {
+  margin-top: 22px;
+  padding: 16px;
+  border-left: 5px solid #0c81e7;
+  background: #f7fbff;
+  border-radius: 12px;
+}
+
+.quienes__frase p {
+  margin: 0;
+  color: #0f172a;
+  font-size: 16px;
+  line-height: 1.7;
+}
+
+.quienes__frase span {
+  display: block;
+  margin-top: 6px;
+  color: #5b6472;
+}
+
+/* ============================================================
+   TARJETAS DE SERVICIOS (servicios.html)
+   ============================================================ */
+.tarjetas {
+  margin: 50px auto;
+  width: 90%;
+  max-width: 1200px;
+
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 20px;
+  text-align: center;
+}
+
+.tarjeta {
+  width: 260px;
+  background-color: #e7eaff;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  border-radius: 10px;
+  overflow: hidden;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  animation: cardIn 0.6s ease both;
+}
+
+/* Animación de entrada escalonada */
+.tarjeta:nth-child(1) { animation-delay: 0s; }
+.tarjeta:nth-child(2) { animation-delay: 0.1s; }
+.tarjeta:nth-child(3) { animation-delay: 0.2s; }
+.tarjeta:nth-child(4) { animation-delay: 0.3s; }
+
+.tarjeta:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 10px 18px rgba(0, 0, 0, 0.2);
+}
+
+.tarjeta img {
+  width: 100%;
+  height: 160px;
+  object-fit: cover;
+  display: block;
+}
+
+.contenido-tarjeta {
+  padding: 15px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  flex-grow: 1;
+}
+
+.tarjeta h3 {
+  font-size: 22px;
+  margin: 5px 0;
+  color: #000;
+}
+
+.descripcion {
+  font-size: 14px;
+  line-height: 1.5;
+  color: #333;
+  text-align: left;
+  flex-grow: 1;
+}
+
+.btn-solicitar {
+  display: inline-block;
+  margin: 15px auto;
+  padding: 8px 15px;
+
+  background-color: #1c2b33;
+  color: #ffffff;
+  font-weight: bold;
+  font-size: 16px;
+
+  text-decoration: none;
+  border-radius: 10px;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.btn-solicitar:hover {
+  background-color: #0c81e7;
+  transform: translateY(-2px);
+}
+
+/* Animación tarjetas */
+@keyframes cardIn {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* ============================================================
+   BLOQUES SEPARADORES (anclas)
+   ============================================================ */
+.bloque-reseña { width: 100%; height: 10px; }
+.bloque-reseña-02 { width: 100%; height: 20px; }
+.bloque-reseña-03 { width: 100%; height: 80px; }
+
+/* ============================================================
+   RESEÑAS (resenas.html)
+   ============================================================ */
+.titulo-de-reseñas {
+  text-align: center;
+  margin-top: 150px;
+}
+
+.titulo-de-reseñas h2 {
+  font-size: 30px;
+}
+
+.reseñas {
+  display: flex;
+  gap: 10px;
+
+  width: 90%;
+  max-width: 900px;
+
+  margin: auto;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin-bottom: 5px;
+}
+
+.contenido-reseñas {
+  width: 200px;
+  height: 280px;
+  border-radius: 20px;
+  border: 1px solid rgb(185, 185, 185);
+  background: #fff;
+}
+
+.contenido-reseñas img {
+  margin-left: 30px;
+  margin-top: 25px;
+  margin-bottom: 10px;
+}
+
+.contenido-reseñas p {
+  text-align: center;
+  margin: 10px;
+  font-size: 14px;
+  line-height: 1.5;
+  color: #333;
+}
+
+.img-google img {
+  margin-left: 90px;
+  margin-top: 30px;
+}
+
+.img-google-3,
+.img-google-4 {
+  margin-left: 70px;
+  margin-top: 35px;
+}
+
+.boton-reseñas {
+  text-align: center;
+  background-color: #0c81e7;
+  border-radius: 50px;
+  width: 260px;
+  margin: 30px auto 200px;
+  padding: 10px 20px;
+}
+
+.boton-reseñas a {
+  color: #e7eaff;
+  text-decoration: none;
+  font-weight: 500;
+}
+
+/* ============================================================
+   MAPA (debajo del contacto en index)
+   ============================================================ */
+.mapa-contacto {
+  max-width: 1100px;
+  margin: 22px auto 0;
+  padding: 0 16px;
+}
+
+.mapa-img {
+  width: 100%;
+  height: 280px;
+  object-fit: cover;
+  border-radius: 14px;
+  box-shadow: 0 8px 22px rgba(0, 0, 0, 0.15);
+  display: block;
+}
+
+/* Mapa más alto en pantallas grandes */
+@media (min-width: 900px) {
+  .mapa-img { height: 340px; }
+}
+
+/* ============================================================
+   BOTÓN WHATSAPP FLOTANTE (global)
+   ============================================================ */
+.boton-whatsapp {
+  width: 50px;
+  height: 50px;
+
+  border-radius: 50%;
+  position: fixed;
+  z-index: 999;
+  bottom: 20px;
+  right: 20px;
+
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3);
+}
+
+/* ============================================================
+   FOOTER (global)
+   ============================================================ */
+.pie {
+  background-color: #0a3551;
+  color: #ffffff;
+  padding: 25px 16px;
+}
+
+.pie__contenedor {
+  max-width: 1200px;
+  margin: 0 auto;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 15px;
+  flex-wrap: wrap;
+}
+
+.pie__texto {
+  font-size: 14px;
+  opacity: 0.95;
+}
+
+.pie__redes {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+}
+
+.pie__icono {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+
+  display: grid;
+  place-items: center;
+
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  text-decoration: none;
+
+  transition: transform 0.2s ease, background 0.2s ease;
+}
+
+.pie__icono:hover {
+  transform: translateY(-2px);
+  background: rgba(12, 129, 231, 0.35);
+}
+
+.pie__icono svg {
+  width: 20px;
+  height: 20px;
+  fill: #ffffff;
+}
+
+/* ============================================================
+   RESPONSIVE: NAVBAR (MÓVIL)
+   ============================================================ */
+@media (max-width: 760px) {
+  /* Mostramos el botón hamburguesa */
+  .label-check {
+    display: block;
+  }
+
+  /* Menú desplegable */
+  .nav-links {
+    display: none;
+    flex-direction: column;
+
+    position: absolute;
+    top: 70px; /* justo debajo del navbar */
+    right: 0;
+
+    background-color: #253944;
+    width: 100%;
+    gap: 0;
+  }
+
+  .nav-links li a {
+    display: flex;
+    justify-content: center;
+    height: 44px;
+    align-items: center;
+  }
+
+  .nav-links li a:hover {
+    background-color: #bdbdbd;
+  }
+
+  /* Checkbox controla el menú */
+  .check-menu:checked + .nav-links {
+    display: flex;
+  }
+}
+
+/* ============================================================
+   RESPONSIVE: TABLET
+   ============================================================ */
+@media (max-width: 900px) {
+  /* Tarjetas: 2 por fila */
+  .tarjeta { width: 45%; }
+
+  /* Quienes somos pasa a 1 columna */
+  .quienes__contenedor { padding: 26px 18px; }
+  .quienes__cuerpo { grid-template-columns: 1fr; }
+  .quienes__titulo { font-size: 26px; }
+  .quienes__texto p { font-size: 16px; }
+}
+
+/* ============================================================
+   RESPONSIVE: MÓVIL
+   ============================================================ */
+@media (max-width: 600px) {
+  /* Tarjetas: 1 por fila */
+  .tarjeta { width: 90%; }
+
+  /* Ajuste de margen del texto intro */
+  .contenido {
+    width: 90%;
+    margin-top: 110px;
+  }
+
+  /* Footer centrado */
+  .pie__contenedor {
+    justify-content: center;
+    text-align: center;
+  }
+}

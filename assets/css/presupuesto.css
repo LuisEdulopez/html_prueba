@@ -1,0 +1,203 @@
+/* =========================
+   PRESUPUESTO
+========================= */
+
+:root{
+  --color-principal: #0A3551;
+  --color-principal-oscuro: #082a41;
+  --color-acento: #1E88E5;
+  --color-texto: #0f172a;
+  --color-texto-suave: #5b6472;
+  --color-fondo: #f7f9fc;
+  --color-tarjeta: #ffffff;
+  --color-borde: #e6eaf0;
+  --radio-grande: 16px;
+  --sombra-suave: 0 8px 24px rgba(2,12,27,0.08);
+}
+
+/* Sección completa */
+.seccion-contacto{
+  background: linear-gradient(180deg, #ffffff 0%, var(--color-fondo) 100%);
+  padding: 64px 16px;
+  margin-top: 80px;
+}
+
+/* Contenedor en 2 columnas */
+.contenedor-contacto{
+  max-width: 1120px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1.1fr 0.9fr;
+  gap: 40px;
+  align-items: start;
+}
+
+/* Textos */
+.titulo-contacto{
+  color: var(--color-principal);
+  font-size: clamp(28px, 4vw, 40px);
+  line-height: 1.15;
+  letter-spacing: -0.02em;
+  margin: 0 0 12px 0;
+  font-weight: 800;
+}
+
+.subtitulo-contacto{
+  color: var(--color-texto-suave);
+  font-size: 16px;
+  line-height: 1.6;
+  margin: 0 0 20px 0;
+}
+
+/* Lista de datos */
+.lista-contacto{
+  list-style: none;
+  padding: 0;
+  margin: 0 0 20px 0;
+  display: grid;
+  gap: 12px;
+}
+
+.item-contacto{
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  color: var(--color-texto);
+  font-size: 15px;
+}
+
+.icono-contacto{
+  width: 36px;
+  height: 36px;
+  min-width: 36px;
+  display: grid;
+  place-items: center;
+  border-radius: 50%;
+  background: #eaf2f7;
+  color: var(--color-principal);
+}
+
+.enlace-contacto{
+  color: var(--color-texto);
+  text-decoration: none;
+  border-bottom: 1px solid transparent;
+  transition: border-color .2s ease, color .2s ease;
+}
+
+.enlace-contacto:hover{
+  color: var(--color-principal);
+  border-bottom-color: var(--color-principal);
+}
+
+.texto-contacto{
+  color: var(--color-texto);
+}
+
+/* Botón secundario (enlace) */
+.boton-secundario{
+  display: inline-block;
+  margin-top: 12px;
+  padding: 12px 18px;
+  border-radius: 999px;
+  background: var(--color-principal);
+  color: #fff;
+  font-weight: 600;
+  text-decoration: none;
+  box-shadow: var(--sombra-suave);
+  transition: transform .15s ease, background .2s ease;
+}
+
+.boton-secundario:hover{
+  background: var(--color-principal-oscuro);
+  transform: translateY(-1px);
+}
+
+/* Columna formulario */
+.zona-formulario{
+  min-width: 0;
+}
+
+/* Tarjeta del formulario */
+.formulario{
+  background: var(--color-tarjeta);
+  border: 1px solid var(--color-borde);
+  border-radius: var(--radio-grande);
+  box-shadow: var(--sombra-suave);
+  padding: 24px;
+  display: grid;
+  gap: 12px;
+}
+
+.etiqueta-formulario{
+  font-size: 13px;
+  color: var(--color-texto-suave);
+}
+
+/* Campos */
+.campo-formulario{
+  width: 100%;
+  padding: 12px 14px;
+  border: 1px solid var(--color-borde);
+  border-radius: 12px;
+  background: #fff;
+  color: var(--color-texto);
+  font-size: 15px;
+  outline: none;
+  transition: border-color .2s ease, box-shadow .2s ease;
+}
+
+.campo-formulario:focus{
+  border-color: var(--color-acento);
+  box-shadow: 0 0 0 4px rgba(30,136,229,0.15);
+}
+
+.campo-area{
+  resize: vertical;
+  min-height: 140px;
+}
+
+/* Botón principal */
+.boton{
+  border: 0;
+  border-radius: 12px;
+  padding: 14px 16px;
+  font-size: 15px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: transform .15s ease, box-shadow .2s ease, background .2s ease;
+}
+
+.boton-principal{
+  background: var(--color-principal);
+  color: white;
+  box-shadow: var(--sombra-suave);
+}
+
+.boton-principal:hover{
+  background: var(--color-principal-oscuro);
+  transform: translateY(-1px);
+}
+
+.boton-principal:active{
+  transform: translateY(0);
+}
+
+.texto-confianza{
+  margin: 4px 2px 0 2px;
+  font-size: 12px;
+  color: var(--color-texto-suave);
+}
+
+/* Responsive */
+@media (max-width: 960px){
+  .contenedor-contacto{
+    grid-template-columns: 1fr;
+    gap: 28px;
+  }
+  .seccion-contacto{
+    padding: 48px 16px;
+  }
+  .boton-secundario{
+    margin-top: 8px;
+  }
+}
